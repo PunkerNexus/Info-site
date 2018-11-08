@@ -10,6 +10,9 @@ namespace Client.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
