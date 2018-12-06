@@ -24,5 +24,7 @@ namespace Client.Models
         //public DateTime? Modified { get; set; }
 
         public Category Category { get; set; }
+
+        public IList<Tag> Tags { get; set; }
     }
 }

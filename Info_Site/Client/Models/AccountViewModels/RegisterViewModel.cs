@@ -8,12 +8,12 @@ namespace Client.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required (ErrorMessage = "Email должен быть введен!")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Пароль должен быть введен!")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

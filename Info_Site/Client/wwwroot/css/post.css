@@ -1,0 +1,22 @@
+﻿.separator {
+    margin: 10px auto 10px auto;
+}
+
+.postCenter {
+    text-align: center;
+}
+
+.footerOne {
+    float: left;
+    width: 33%;
+}
+
+.footerTwo {
+    float:  left;
+    width: 33%;
+}
+
+.footerThree {
+    float: right;
+    width: 33%;
+}

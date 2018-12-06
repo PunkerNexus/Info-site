@@ -8,15 +8,15 @@ namespace Client.Models.AccountViewModels
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required (ErrorMessage = "Вы не ввели Email!")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Вы не ввели пароль!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Запомнить?")]
         public bool RememberMe { get; set; }
     }
 }
