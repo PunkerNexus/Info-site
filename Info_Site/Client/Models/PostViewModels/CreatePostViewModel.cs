@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Client.Models
+namespace Client.Models.PostViewModels
 {
-    public class Post
-    {
-        public string Id { get; set; }
-
+    public class CreatePostViewModel
+    { 
         public string Title { get; set; }
 
-        //public string ShortDescription { get; set; }
+        public string ShortDescription { get; set; }
 
         public string Description { get; set; }
 
-        public string UrlSlug { get; set; } // alternative for the title in address, localhost:1111/archive/some_title
+        public string UrlSlug { get; set; }
 
         public bool Published { get; set; }
 

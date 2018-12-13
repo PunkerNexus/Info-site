@@ -6,17 +6,20 @@
     text-align: center;
 }
 
-.footerOne {
-    float: left;
-    width: 33%;
+.postMiddle {
+    
 }
 
-.footerTwo {
-    float:  left;
-    width: 33%;
+.flex-container {
+    display: flex;
+    align-items: stretch;
 }
 
-.footerThree {
-    float: right;
-    width: 33%;
-}
+    .flex-container > div {
+        color: black;
+        width: 100px;
+        margin: auto;
+        text-align: center;
+        line-height: 75px;
+        font-size: 20px;
+    }

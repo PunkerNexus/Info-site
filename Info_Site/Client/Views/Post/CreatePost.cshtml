@@ -1,0 +1,27 @@
+﻿@model CreatePostViewModel
+
+@{
+    ViewData["Title"] = "New post";
+}
+
+<form method="post">
+    <div class="panel panel-default separator">
+        <div class="panel-heading postCenter">
+            <h4>Название статьи:</h4>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="panel-body postCenter">
+            <h4>Текст:</h4>
+                <textarea asp-for="Description" class="form-control" rows="10" style="resize:none"></textarea>
+                @*<span asp-validation-for="Email" class="text-danger"></span>*@
+        </div>
+        @*<div class="panel-footer flex-container" style="height: auto">
+            <div style="flex-grow: 3">dateTime</div>
+            <div style="flex-grow: 3"><button type="button" class="btn btn-secondary">Full story</button></div>
+            <div style="flex-grow: 3">Author</div>
+        </div>*@
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Отправить</button>
+    </div>
+</form>
