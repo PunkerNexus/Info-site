@@ -1,32 +1,22 @@
-﻿@using Client.Data
-@model CreatePostViewModel
-@inject ApplicationDbContext AppDb
+﻿@model List<CreatePostViewModel>
 
 @{
-    ViewData["Title"] = "Posts";
+    ViewData["Title"] = "All articles";
 }
 
-@*@{
-        var title = AppDb.Posts
-    }*@
+<head>
+    <link rel="stylesheet" href="~/css/postlist.css">
+</head>
 
-<div class="panel panel-default separator">
-    <div class="panel-heading postCenter">
-        <h4>Название статьи:</h4>
-        <label asp-for="Title">а?</label>
-        @*@foreach (var title in Model)
-        {
-            @title.Title
-        }*@
-        @*<input asp-for="@AppDb" class="form-control" />*@
-    </div>
-    <div class="panel-body postCenter">
-        <h4>Текст:</h4>
-        @*<textarea asp-for="Description" class="form-control" rows="10" style="resize:none"></textarea>*@
-    </div>
-    <div class="panel-footer flex-container" style="height: auto">
-        <div style="flex-grow: 3">dateTime</div>
-        <div style="flex-grow: 3"><button type="button" class="btn btn-secondary">Full story</button></div>
-        <div style="flex-grow: 3">Author</div>
-    </div>
+<div>
+    <br />
+    @foreach (var item in Model)
+    {
+        <ol class="rounded-list">
+            <li><a href="">Название статьи: @item.Title</a></li>
+            <li><a href="">Автор: @item.Author</a></li>
+            <li><a href="">Дата создания: @item.PostedOn</a></li>
+            <li><a href="http://localhost:1212/Post/Get?titleUrl=@item.TitleUrl">Ссылка</a></li>
+        </ol>
+    }
 </div>

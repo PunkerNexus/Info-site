@@ -1,0 +1,13 @@
+﻿@model List<VideoViewModel>
+
+@{
+    ViewData["Title"] = "Videos";
+}
+
+<div class="postCenter separator">
+    @foreach (var item in Model)
+    {
+        <h4>@item.Name</h4>
+        <iframe width="560" height="315" src="@item.Url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    }
+</div>

@@ -1,0 +1,19 @@
+﻿@model VideoViewModel
+
+@{
+    ViewData["Title"] = "New video";
+}
+
+<form method="post">
+    <div class="separator postCenter">
+        <h4>Заголовок видео:</h4>
+        <input asp-for="Name" class="form-control" placeholder="Заголовок" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <h4>Embed cсылка:</h4>
+        <input asp-for="Url" class="form-control" placeholder="Ссылка на youtube" />
+        <span asp-validation-for="Url" class="text-danger"></span>
+    </div>
+    <div class="form-group postCenter">
+        <button type="submit" class="btn btn-default">Отправить</button>
+    </div>
+</form>

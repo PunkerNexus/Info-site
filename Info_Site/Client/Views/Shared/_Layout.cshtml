@@ -33,8 +33,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Post" asp-action="CreatePost">Новый пост</a></li>
-                    <li><a asp-area="" asp-controller="Post" asp-action="Posts">Посты</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
+                    <li><a asp-area="" asp-controller="Video" asp-action="SendVideo">Добавить видео</a></li>
+                    <li><a asp-area="" asp-controller="Post" asp-action="GetAll">Статьи</a></li>
+                    <li><a asp-area="" asp-controller="Video" asp-action="GetVid">Видео</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

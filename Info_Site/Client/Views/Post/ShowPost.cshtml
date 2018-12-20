@@ -1,0 +1,24 @@
+﻿@model CreatePostViewModel
+
+@{
+    ViewData["Title"] = "Articles";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/post.css">
+</head>
+
+<div class="panel panel-default separator">
+    <div class="panel-heading postCenter">
+        <h4><label asp-for="Title">@Model.Title</label></h4>
+    </div>
+    <div class="panel-body postCenter">
+
+        <label asp-for="Description">@Model.Description</label>
+    </div>
+    <div class="panel-footer flex-container" style="height: auto">
+        <div style="flex-grow: 3"><h5>Posted on: @Model.PostedOn</h5></div>
+        <div style="flex-grow: 3"></div>
+        <div style="flex-grow: 3"><h5>Posted by: <a href="#" target="_blank">@Model.Author</a></h5></div>
+    </div>
+</div>

@@ -20,6 +20,7 @@ namespace Client.Data
         //dotnet ef database update
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Video> Videos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

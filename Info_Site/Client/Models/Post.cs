@@ -11,6 +11,8 @@ namespace Client.Models
 
         public string Title { get; set; }
 
+        public string TitleUrl { get; set; }
+
         //public string ShortDescription { get; set; }
 
         public string Description { get; set; }
@@ -20,6 +22,8 @@ namespace Client.Models
         public bool Published { get; set; }
 
         public DateTime PostedOn { get; set; }
+
+        public string Author { get; set; }
 
         //public DateTime? Modified { get; set; }
 
