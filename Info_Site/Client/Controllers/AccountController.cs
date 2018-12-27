@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Client.Models;
 using Client.Models.AccountViewModels;
 using Client.Services;
+using Client.Data;
 
 namespace Client.Controllers
 {
@@ -24,13 +25,16 @@ namespace Client.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext _applicationDbContext;
 
         public AccountController(
+            ApplicationDbContext applicationDbContext,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger)
         {
+            _applicationDbContext = applicationDbContext;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -435,6 +439,51 @@ namespace Client.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Get(string email)
+        {
+            var profile = _applicationDbContext.Users.FirstOrDefault(x => x.Email.ToLower() == email.ToLower());
+            if (profile == null)
+            {
+                return View("NotFound");
+            }
+
+            var model = new ProfileViewModel
+            {
+                Email = profile.Email,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                About = profile.About,
+                Hobby = profile.Hobby
+            };
+
+            return View("Profile", model);
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var users = _applicationDbContext.Users
+                .OrderByDescending(x => x.Email)
+                .Select(x => new ProfileViewModel
+                {
+                    Email = x.Email,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    About = x.About,
+                    Hobby = x.Hobby
+                })
+                .ToList();
+
+            return View("Profiles", users);
         }
 
         #region Helpers

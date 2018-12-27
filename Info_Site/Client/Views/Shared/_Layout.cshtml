@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script>
+    tinymce.init({
+            selector: 'textarea',  // change this value according to your HTML
+            auto_focus: 'element1'
+        });
+    </script>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -32,10 +39,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Post" asp-action="CreatePost">Новый пост</a></li>
+                    <li><a asp-area="" asp-controller="Post" asp-action="CreatePost">Новая статья</a></li>
                     <li><a asp-area="" asp-controller="Video" asp-action="SendVideo">Добавить видео</a></li>
                     <li><a asp-area="" asp-controller="Post" asp-action="GetAll">Статьи</a></li>
                     <li><a asp-area="" asp-controller="Video" asp-action="GetVid">Видео</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="GetAll">Пользователи</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

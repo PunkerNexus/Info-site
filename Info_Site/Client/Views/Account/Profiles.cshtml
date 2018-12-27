@@ -1,0 +1,21 @@
+﻿@model List<ProfileViewModel>
+
+@{
+    ViewData["Title"] = "Profiles";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/postlist.css">
+</head>
+
+<div>
+    <br />
+    @foreach (var item in Model)
+    {
+        <ol class="rounded-list">
+            <li><a href="">Имя: @item.FirstName @item.LastName</a></li>
+            <li><a href="http://localhost:1212/Account/Get?email=@item.Email">Email: @item.Email</a></li>
+            <li><a href="">Все статьи: url's</a></li>
+        </ol>
+    }
+</div>

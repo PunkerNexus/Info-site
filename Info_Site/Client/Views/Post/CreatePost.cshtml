@@ -4,6 +4,8 @@
     ViewData["Title"] = "New article";
 }
 
+@*<script type="text/javascript" scr="js/tinymce/tinymne.min.js"></script>*@
+
 <form method="post">
     <div class="panel panel-default separator">
         <div class="panel-heading postCenter">
@@ -15,13 +17,7 @@
             <h4>Текст:</h4>
             <textarea asp-for="Description" class="form-control" rows="10" style="resize:none"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
-            @*<span asp-validation-for="Email" class="text-danger"></span>*@
         </div>
-        @*<div class="panel-footer flex-container" style="height: auto">
-                <div style="flex-grow: 3">dateTime</div>
-                <div style="flex-grow: 3"><button type="button" class="btn btn-secondary">Full story</button></div>
-                <div style="flex-grow: 3">Author</div>
-            </div>*@
     </div>
     <div class="postCenter">
         <h4>Доступ к этой статье по ссылке, например "localhost:1212/Post/Get?titleUrl=NAME":</h4>

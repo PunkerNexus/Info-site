@@ -19,6 +19,7 @@ namespace Client.Models.PostViewModels
         //public string ShortDescription { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно для заполнения")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public string UrlSlug { get; set; }

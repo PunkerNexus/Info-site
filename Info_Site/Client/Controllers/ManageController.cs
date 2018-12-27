@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Client.Models;
 using Client.Models.ManageViewModels;
 using Client.Services;
+using Client.Models.AccountViewModels;
 
 namespace Client.Controllers
 {
@@ -176,6 +177,72 @@ namespace Client.Controllers
             StatusMessage = "Your password has been changed.";
 
             return RedirectToAction(nameof(ChangePassword));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> About()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var model = new ProfileViewModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                About = user.About,
+                Hobby = user.Hobby,
+                ProfilePhoto = user.ProfilePhoto,
+                StatusMessage = StatusMessage
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> About(ProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            if (user.FirstName != model.FirstName)
+            {
+                user.FirstName = model.FirstName;
+            }
+
+            if (user.LastName != model.LastName)
+            {
+                user.LastName = model.LastName;
+            }
+
+            if (user.About != model.About)
+            {
+                user.About = model.About;
+            }
+
+            if (user.Hobby != model.Hobby)
+            {
+                user.Hobby = model.Hobby;
+            }
+
+            if (user.ProfilePhoto != model.ProfilePhoto)
+            {
+                user.ProfilePhoto = model.ProfilePhoto;
+            }
+
+            await _userManager.UpdateAsync(user);
+            StatusMessage = "Вы обновили информацию о себе.";
+            return RedirectToAction(nameof(About));
         }
 
         [HttpGet]

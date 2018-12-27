@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Client.Models.AccountViewModels
         [Required (ErrorMessage = "Email должен быть введен!")]
         [EmailAddress]
         [Display(Name = "Email")]
+        //[Remote("UserExists", "Account", ErrorMessage = "Пользователь с таким именем уже существует.")]
         public string Email { get; set; }
 
         [Required (ErrorMessage = "Пароль должен быть введен!")]
@@ -21,7 +23,7 @@ namespace Client.Models.AccountViewModels
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Пароль и подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
     }
 }
